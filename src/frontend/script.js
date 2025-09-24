@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Elementos da interface
     const dropZone = document.getElementById('dropZone');
     const fileInput = document.getElementById('fileInput');
     const progressBar = document.getElementById('progressBar');
@@ -7,6 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const jsonViewer = document.getElementById('jsonViewer');
     const downloadJson = document.getElementById('downloadJson');
     const loadingOverlay = document.getElementById('loadingOverlay');
+
+    // Reset do estado inicial
+    const resetUI = () => {
+        progressBar.style.display = 'none';
+        loadingOverlay.hidden = true;
+        resultsSection.hidden = true;
+        dropZone.style.display = 'block';
+    };
+
+    // Inicializar interface
+    resetUI();
 
     // Prevent default drag behaviors
     ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
